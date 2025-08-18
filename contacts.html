@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionnaire de Contacts</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/sql-wasm.js"></script>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📞 Gestionnaire de Contacts</h1>
+            <p>Gérez vos contacts avec des champs personnalisables</p>
+        </div>
+
+        <div class="main-content">
+            <div class="form-section">
+                <h2 style="margin-bottom: 20px; color: #495057;">
+                    <span id="form-title">Ajouter un Contact</span>
+                </h2>
+
+                <form id="contact-form">
+                    <input type="hidden" id="contact-id">
+                    
+                    <!-- Champs obligatoires par défaut -->
+                    <div class="form-group">
+                        <label for="nom">Nom *</label>
+                        <input type="text" id="nom" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="prenom">Prénom *</label>
+                        <input type="text" id="prenom" required>
+                    </div>
+
+                    <!-- Zone des champs dynamiques -->
+                    <div id="dynamic-fields"></div>
+
+                    <!-- Bouton pour ajouter des champs -->
+                    <div class="add-field-section">
+                        <div class="add-field-form" style="display: none;">
+                            <div class="form-row">
+                                <input type="text" id="new-field-name" placeholder="Nom du champ">
+                                <select id="new-field-type">
+                                    <option value="text">Texte</option>
+                                    <option value="email">Email</option>
+                                    <option value="tel">Téléphone</option>
+                                    <option value="date">Date</option>
+                                    <option value="url">URL</option>
+                                </select>
+                                <button type="button" class="btn btn-primary btn-sm" onclick="contactManager.addCustomField()">
+                                    ✅ Ajouter
+                                </button>
+                                <button type="button" class="btn btn-secondary btn-sm" onclick="contactManager.cancelAddField()">
+                                    ❌ Annuler
+                                </button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success" id="add-field-btn" onclick="contactManager.showAddField()">
+                            ➕ Ajouter un champ personnalisé
+                        </button>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary" id="submit-btn">
+                            ➕ Ajouter le Contact
+                        </button>
+                        <button type="button" class="btn btn-secondary" id="cancel-btn" style="display: none;">
+                            ❌ Annuler
+                        </button>
+                    </div>
+                </form>
+
+                <div class="admin-section">
+                    <h3>Administration</h3>
+                    <button type="button" class="btn btn-danger" onclick="contactManager.resetDatabase()">
+                        🗑️ Réinitialiser la base
+                    </button>
+                    <button type="button" class="btn btn-secondary" onclick="contactManager.exportData()">
+                        💾 Exporter les données
+                    </button>
+                    <input type="file" id="import-file" accept=".json" style="display: none;" onchange="contactManager.importData(this)">
+                    <button type="button" class="btn btn-secondary" onclick="document.getElementById('import-file').click()">
+                        📂 Importer les données
+                    </button>
+                </div>
+            </div>
+
+            <div class="contacts-section">
+                <div class="stats" id="stats">
+                    📊 Total: 0 contact(s)
+                </div>
+
+                <div class="search-bar">
+                    <input type="text" id="search" placeholder="Rechercher un contact...">
+                </div>
+
+                <div class="contacts-list" id="contacts-list">
+                    <div class="no-contacts">
+                        Aucun contact pour le moment.<br>
+                        Utilisez le formulaire pour ajouter votre premier contact !
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="contacts.js"></script>
+</body>
+</html>

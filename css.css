@@ -1,0 +1,359 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.header {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.header p {
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    min-height: 600px;
+}
+
+.form-section {
+    background: #f8f9fa;
+    padding: 30px;
+    border-right: 1px solid #e9ecef;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-group.custom-field {
+    background: #fff3cd;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #ffc107;
+}
+
+.custom-field .remove-field {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #495057;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #545b62;
+    transform: translateY(-2px);
+}
+
+.btn-success {
+    background: #28a745;
+    color: white;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.btn-success:hover {
+    background: #218838;
+    transform: translateY(-2px);
+}
+
+.btn-danger {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #c82333;
+    transform: translateY(-2px);
+}
+
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 14px;
+}
+
+.add-field-section {
+    margin: 20px 0;
+    padding: 20px;
+    background: #e8f5e8;
+    border-radius: 8px;
+}
+
+.add-field-form {
+    margin-bottom: 15px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr auto auto;
+    gap: 10px;
+    align-items: end;
+}
+
+.form-actions {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #dee2e6;
+}
+
+.admin-section {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f8d7da;
+    border-radius: 8px;
+    border-left: 4px solid #dc3545;
+}
+
+.admin-section h3 {
+    margin-bottom: 15px;
+    color: #721c24;
+}
+
+.contacts-section {
+    padding: 30px;
+}
+
+.search-bar {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.search-bar input {
+    padding-left: 40px;
+}
+
+.search-bar::before {
+    content: '🔍';
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    z-index: 1;
+}
+
+.contacts-list {
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.contact-card {
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.contact-card:hover {
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.contact-card.selected {
+    border-color: #667eea;
+    background: #f8f9ff;
+}
+
+.contact-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #495057;
+    margin-bottom: 15px;
+}
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.contact-detail {
+    font-size: 0.9rem;
+    color: #6c757d;
+    padding: 8px 12px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    border-left: 3px solid #667eea;
+}
+
+.contact-detail.custom-field {
+    background: #fff3cd;
+    border-left-color: #ffc107;
+}
+
+.contact-detail strong {
+    color: #495057;
+    font-weight: 600;
+}
+
+.contact-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.no-contacts {
+    text-align: center;
+    color: #6c757d;
+    font-style: italic;
+    margin-top: 50px;
+}
+
+.stats {
+    background: linear-gradient(45deg, #28a745, #20c997);
+    color: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-section {
+        border-right: none;
+        border-bottom: 1px solid #e9ecef;
+        max-height: none;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-info {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contact-card {
+    animation: slideIn 0.3s ease;
+}
+
+.form-group.custom-field {
+    animation: slideIn 0.5s ease;
+}
+
+/* Scrollbar personnalisé */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #667eea;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #5a6fd8;
+}
