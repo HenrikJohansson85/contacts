@@ -1,0 +1,71 @@
+/* Reset rapide */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Body */
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Titre */
+h1 {
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+/* Labels et inputs */
+label {
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+}
+
+input[type="file"] {
+    margin-bottom: 20px;
+    padding: 6px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 300px;
+}
+
+/* Bouton */
+button {
+    background-color: #3498db;
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+    background-color: #2980b9;
+}
+
+/* Conteneur central */
+body > * {
+    margin-bottom: 15px;
+}
+
+/* Optionnel : centrage du bouton et input */
+button, input[type="file"] {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

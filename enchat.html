@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Enchat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Contacts</h2>
+            <input type="file" id="fileInput" accept=".json" />
+            <ul id="contacts-list"></ul>
+            <button type="button" id="export">Exporter la discussion</button>
+        </div>
+
+        <div class="chat-container">
+            <div class="chat-header" id="chat-header">Sélectionne un contact</div>
+            <div class="chat-messages" id="chat-messages"></div>
+            <div class="chat-input">
+                <input type="text" id="message-input" placeholder="Écrire un message...">
+                <button id="send-button">Envoyer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🔹 POPUP -->
+    <div id="popup-overlay" style="display:none;">
+        <div id="popup-box">
+            <h2>Formulaire de contact</h2>
+            <form id="popup-form">
+                <label for="ID">ID :</label>
+                <input type="text" id="ID" name="ID" required>
+
+                <label for="password">Password :</label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="port">Port :</label>
+                <input type="text" id="port" name="port" placeholder="8080" required>
+
+                <button type="submit">Envoyer</button>
+                <button type="button" id="close-btn">Fermer</button>
+            </form>
+        </div>
+    </div>
+    <!-- 🔹 FIN POPUP -->
+
+    <!-- Scripts -->
+    <script src="ui.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+</html>
